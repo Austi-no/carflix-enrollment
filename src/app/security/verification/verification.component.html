@@ -14,8 +14,10 @@
                 name="phoneNumber" aria-label="phone number">
             </div>
             <div class="text-center">
-              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="sendVerificationCode()">Send
-                Verification code</button>
+              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="sendVerificationCode()"
+                [disabled]="submitted == true"> Send
+                Verification code<span [className]="submitted ? 'spinner-border spinner-border-sm' : ''" role="status"
+                  aria-hidden="true"></span></button>
             </div>
 
             <div id="sign-in-button"></div>
@@ -27,6 +29,3 @@
     </div>
   </div>
 </div>
-<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin" [fullScreen]="true">
-  <p style="color: white"> Sending OTP... </p>
-</ngx-spinner>

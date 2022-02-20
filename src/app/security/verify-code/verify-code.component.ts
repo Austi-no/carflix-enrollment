@@ -14,6 +14,7 @@ import "firebase/firestore"
 export class VerifyCodeComponent implements OnInit {
   otpCode!: string
   verify: any
+  submitted!: boolean
   constructor(private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   config = {
@@ -39,15 +40,15 @@ export class VerifyCodeComponent implements OnInit {
   }
 
   verifyCode() {
-    this.spinner.show()
+    this.submitted = true
     var credentials = firebase.auth.PhoneAuthProvider.credential(this.verify, this.otpCode)
     firebase.auth().signInWithCredential(credentials).then((res: any) => {
 
       this.router.navigate(['/thank-you-page'])
-      this.spinner.hide()
+      this.submitted = false
 
     }).catch((error: any) => {
-      this.spinner.hide()
+      this.submitted = false
       this.toastr.error('', error)
       console.log(error)
     })

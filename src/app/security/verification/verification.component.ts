@@ -25,7 +25,7 @@ var config = {
   styleUrls: ['./verification.component.css']
 })
 export class VerificationComponent implements OnInit {
-  sendVerification: boolean = false
+  submitted!: boolean
 
   phoneNumber: any
   recaptchaVerifier: any
@@ -39,7 +39,7 @@ export class VerificationComponent implements OnInit {
   }
 
   sendVerificationCode() {
-    this.spinner.show()
+    this.submitted = true
     console.log(this.phoneNumber);
 
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
@@ -47,10 +47,10 @@ export class VerificationComponent implements OnInit {
       console.log(result);
       localStorage.setItem("verificationId", JSON.stringify(result.verificationId))
       this.router.navigate(['/verifyCode'])
-      this.spinner.hide()
+      this.submitted = false
     }).catch((error: any) => {
-      this.spinner.hide()
-      console.log(error)
+      this.submitted = false
+      this.toastr.error("", error)
     })
 
 

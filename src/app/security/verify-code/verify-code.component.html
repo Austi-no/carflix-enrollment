@@ -13,8 +13,10 @@
               </ng-otp-input>
             </div>
             <div class="text-center">
-              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="verifyCode()">Verify
-                Code</button>
+              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="verifyCode()"
+                [disabled]="submitted == true"> Verify Code<span
+                  [className]="submitted ? 'spinner-border spinner-border-sm' : ''" role="status"
+                  aria-hidden="true"></span></button>
             </div>
           </form>
 
@@ -24,6 +26,3 @@
     </div>
   </div>
 </div>
-<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-spin" [fullScreen]="true">
-  <p style="color: white"> Verifying OTP... </p>
-</ngx-spinner>
