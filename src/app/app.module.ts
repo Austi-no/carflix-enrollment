@@ -15,6 +15,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { VerifyCodeComponent } from './security/verify-code/verify-code.component';
 import { NgOtpInputModule } from 'ng-otp-input';
+import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.component';
 
 
 
@@ -27,6 +28,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
     HeroComponent,
     FooterComponent,
     VerifyCodeComponent,
+    ThankYouPageComponent
 
   ],
   imports: [

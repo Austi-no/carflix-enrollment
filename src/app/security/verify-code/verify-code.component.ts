@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase/app';
 import 'firebase/auth'
@@ -11,7 +12,7 @@ import "firebase/firestore"
 export class VerifyCodeComponent implements OnInit {
   otpCode!: string
   verify: any
-  constructor() { }
+  constructor(private router: Router) { }
 
   config = {
     allowNumbersOnly: true,
@@ -37,10 +38,11 @@ export class VerifyCodeComponent implements OnInit {
   }
 
   verifyCode() {
-    console.log(this.otpCode)
     var credentials = firebase.auth.PhoneAuthProvider.credential(this.verify, this.otpCode)
     firebase.auth().signInWithCredential(credentials).then((res: any) => {
-      console.log(res);
+
+      this.router.navigate(['/thank-you-page'])
+
 
     }).catch(error => console.log(error));
   }
