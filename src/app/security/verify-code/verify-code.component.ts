@@ -1,3 +1,5 @@
+import { ToastrService } from 'ngx-toastr';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import firebase from 'firebase/app';
@@ -12,7 +14,7 @@ import "firebase/firestore"
 export class VerifyCodeComponent implements OnInit {
   otpCode!: string
   verify: any
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   config = {
     allowNumbersOnly: true,
@@ -28,7 +30,6 @@ export class VerifyCodeComponent implements OnInit {
 
   ngOnInit() {
     this.verify = JSON.parse(localStorage.getItem('verificationId') || '')
-    console.log(this.verify);
 
   }
 
@@ -38,12 +39,18 @@ export class VerifyCodeComponent implements OnInit {
   }
 
   verifyCode() {
+    this.spinner.show()
     var credentials = firebase.auth.PhoneAuthProvider.credential(this.verify, this.otpCode)
     firebase.auth().signInWithCredential(credentials).then((res: any) => {
 
       this.router.navigate(['/thank-you-page'])
+      this.spinner.hide()
 
+    }).catch((error: any) => {
+      this.spinner.hide()
+      this.toastr.error('', error)
+      console.log(error)
+    })
 
-    }).catch(error => console.log(error));
   }
 }

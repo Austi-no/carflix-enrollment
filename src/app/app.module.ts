@@ -16,6 +16,7 @@ import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { VerifyCodeComponent } from './security/verify-code/verify-code.component';
 import { NgOtpInputModule } from 'ng-otp-input';
 import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.component';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -42,9 +43,10 @@ import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.co
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    NgOtpInputModule
+    NgOtpInputModule,
+    NgxSpinnerModule
   ],
-  providers: [],
+  providers: [NgxSpinnerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

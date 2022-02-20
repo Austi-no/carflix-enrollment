@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,26 +9,30 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  signUpForm:any=FormGroup;
+  signUpForm: any = FormGroup;
 
 
-  constructor( private formBuilder:FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private toastr: ToastrService) { }
 
-  
+
 
   ngOnInit(): void {
 
-    this.signUpForm=this.formBuilder.group({
+    this.signUpForm = this.formBuilder.group({
 
       firstName: ['', [Validators.required,]],
       lastName: ['', [Validators.required]],
       address: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required]],
-      location:['', [Validators.required]]
+      location: ['', [Validators.required]]
 
 
     })
+  }
+
+  signUp() {
+    this.toastr.success('Record saved successfully');
   }
 
 }

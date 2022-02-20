@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import firebase from 'firebase/app';
 import 'firebase/auth'
 import "firebase/firestore"
+import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 
 var config = {
@@ -28,7 +30,7 @@ export class VerificationComponent implements OnInit {
   phoneNumber: any
   recaptchaVerifier: any
   windowRef: any;
-  constructor(private router: Router, private service: AppService) { }
+  constructor(private router: Router, private spinner: NgxSpinnerService, private toastr: ToastrService, private service: AppService) { }
 
   ngOnInit() {
 
@@ -37,7 +39,7 @@ export class VerificationComponent implements OnInit {
   }
 
   sendVerificationCode() {
-    this.sendVerification = true
+    this.spinner.show()
     console.log(this.phoneNumber);
 
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
@@ -45,7 +47,11 @@ export class VerificationComponent implements OnInit {
       console.log(result);
       localStorage.setItem("verificationId", JSON.stringify(result.verificationId))
       this.router.navigate(['/verifyCode'])
-    }).catch(error => console.log(error));
+      this.spinner.hide()
+    }).catch((error: any) => {
+      this.spinner.hide()
+      console.log(error)
+    })
 
 
 
@@ -53,7 +59,5 @@ export class VerificationComponent implements OnInit {
   }
 
 
-  verified() {
-    this.router.navigate(["/sign-up"])
-  }
+
 }
