@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
+    <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+      <div class="card z-index-0">
+        <div class="card-header text-center pt-4">
+          <h5>Enter Phone: </h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="mb-3">
+              <label for="phone number">Phone number</label>
+              <input type="text" class="form-control" placeholder="Enter your phone number" [(ngModel)]="phoneNumber"
+                name="phoneNumber" aria-label="phone number">
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="sendVerificationCode()">Send
+                Verification code</button>
+            </div>
+
+            <div id="sign-in-button"></div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
