@@ -7,16 +7,14 @@
         </div>
         <div class="card-body">
           <form>
-            <div class="mb-3">
-              <label for="phone number">Phone number</label>
-              <input type="text" class="form-control" placeholder="Enter your phone number">
+            <div class="mb-3 text-center">
+              <ng-otp-input (onInputChange)=" onOtpChange($event)" [config]="config">
+              </ng-otp-input>
             </div>
             <div class="text-center">
-              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="verifyCode()">Send
-                Verification code</button>
+              <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="verifyCode()">Verify
+                Code</button>
             </div>
-
-            <div id="sign-in-button"></div>
           </form>
 
 

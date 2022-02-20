@@ -21,6 +21,7 @@
     "@angular/router": "~12.1.1",
     "firebase": "^8.10.0",
     "intl-tel-input": "^17.0.15",
+    "ng-otp-input": "^1.8.1",
     "ng2-tel-input": "^2.3.0",
     "ngx-toastr": "^14.2.1",
     "rxjs": "~6.6.0",

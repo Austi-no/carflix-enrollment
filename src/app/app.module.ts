@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { VerificationComponent } from './security/verification/verification.component';
 import { SignUpComponent } from './security/sign-up/sign-up.component';
-import { HomeComponent } from './layout/home/home.component';
 import { HeroComponent } from './layout/hero/hero.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,6 +14,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
 import { VerifyCodeComponent } from './security/verify-code/verify-code.component';
+import { NgOtpInputModule } from 'ng-otp-input';
 
 
 
@@ -24,7 +24,6 @@ import { VerifyCodeComponent } from './security/verify-code/verify-code.componen
     AppComponent,
     VerificationComponent,
     SignUpComponent,
-    HomeComponent,
     HeroComponent,
     FooterComponent,
     VerifyCodeComponent,
@@ -40,7 +39,8 @@ import { VerifyCodeComponent } from './security/verify-code/verify-code.componen
     // Firebase
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    NgOtpInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
