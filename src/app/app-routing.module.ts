@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.component';
 import { VerificationComponent } from './security/verification/verification.component';
 import { VerifyCodeComponent } from './security/verify-code/verify-code.component';
@@ -11,7 +12,9 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'verifyCode', component: VerifyCodeComponent },
   { path: 'thank-you', component: ThankYouPageComponent },
-  { path: 'agent', component: RefferalAgentComponent }
+  { path: 'agent', component: RefferalAgentComponent },
+  { path: '**', component: NotFoundComponent }
+
 ];
 
 @NgModule({

@@ -19,6 +19,7 @@ import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.co
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { RefferalAgentComponent } from './refferal-agent/refferal-agent.component';
+import { NotFoundComponent } from './layout/not-found/not-found.component';
 
 
 
@@ -32,7 +33,8 @@ import { RefferalAgentComponent } from './refferal-agent/refferal-agent.componen
     FooterComponent,
     VerifyCodeComponent,
     ThankYouPageComponent,
-    RefferalAgentComponent
+    RefferalAgentComponent,
+    NotFoundComponent
 
   ],
   imports: [

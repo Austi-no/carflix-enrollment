@@ -13,15 +13,21 @@ export class RefferalAgentComponent implements OnInit {
   form: any = FormGroup
   enrolledUsers: any = []
   agentList: any = [];
+  baseURL: any
   constructor(private fb: FormBuilder, private service: AppService, private toastr: ToastrService) { }
 
   ngOnInit() {
+    this.baseURL = location.origin
     this.form = this.fb.group({
       RefID: ['', Validators.required],
       name: ['', Validators.required],
       enrolledUsers: []
     })
     this.getAgents()
+
+    // console.log(location.origin);
+    // console.log(location.href);
+    // console.log(location.pathname);
   }
 
   getAgents() {
@@ -41,6 +47,7 @@ export class RefferalAgentComponent implements OnInit {
     this.form.get('RefID').setValue(this.refID)
     this.form.get('enrolledUsers').setValue(this.enrolledUsers)
     this.service.addAgent(this.form.value)
+    this.getAgents()
 
 
   }
