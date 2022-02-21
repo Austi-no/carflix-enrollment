@@ -18,6 +18,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.component';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
+import { RefferalAgentComponent } from './refferal-agent/refferal-agent.component';
 
 
 
@@ -30,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeroComponent,
     FooterComponent,
     VerifyCodeComponent,
-    ThankYouPageComponent
+    ThankYouPageComponent,
+    RefferalAgentComponent
 
   ],
   imports: [
