@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  baseUrl: 'https://carflix.swipe.fund:2030/static/v1/mobile/',
   firebase: {
     apiKey: "AIzaSyBhD0qRZdtAajO0mY7X_kImREC0dELQyTI",
     authDomain: "carflix-auto0.firebaseapp.com",

@@ -5,7 +5,7 @@
       <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
         <div class="card z-index-0">
           <div class="card-header text-center pt-4">
-            <h5>Register with</h5>
+            <h5>Sign Up</h5>
           </div>
 
           <div class="card-body">
@@ -23,8 +23,7 @@
               </div>
 
               <div class="mb-3">
-                <input type="text" class="form-control disable" placeholder="Phone number" aria-label="Phone"
-                  formControlName="phone">
+                <input type="text" class="form-control" formControlName="phone" readonly>
               </div>
               <div class="mb-3">
                 <input type="text" class="form-control" placeholder="address" aria-label="Address"
@@ -38,7 +37,10 @@
               </div>
 
               <div class="text-center">
-                <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="signUp()">Sign up</button>
+                <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="signUp()"
+                  [disabled]="submitted == true"> Sign Up<span
+                    [className]="submitted ? 'spinner-border spinner-border-sm' : ''" role="status"
+                    aria-hidden="true"></span></button>
               </div>
               <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;"
                   class="text-dark font-weight-bolder">Sign in</a></p>
