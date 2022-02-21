@@ -36,8 +36,37 @@ export class SignUpComponent implements OnInit {
     this.signUpForm.get('dealerId').setValue(this.dealerID)
     this.service.signUp(this.signUpForm.value).subscribe((res: any) => {
       console.log(res)
-      this.router.navigate(['/thank-you'])
+
       this.submitted = false
+      if (res.code == "200" || res.code == "201") {
+        this.toastr.success(res.message, res.data)
+        this.router.navigate(['/thank-you'])
+      }
+      if (res.code == "300") {
+        this.toastr.error(res.message, res.data)
+      }
+      if (res.code == "400") {
+        this.toastr.error(res.message, res.data)
+      }
+
+      if (res.code == "401") {
+        this.toastr.error(res.message, res.data)
+      }
+
+      if (res.code == "403") {
+        this.toastr.error(res.message, res.data)
+      }
+
+      if (res.code == "404") {
+        this.toastr.error(res.message, res.data)
+      }
+
+      if (res.code == "500") {
+        this.toastr.error(res.message, res.data)
+      }
+
+
+
     }),
       (error: any) => {
         console.log('', error)
