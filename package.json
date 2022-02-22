@@ -23,7 +23,7 @@
     "intl-tel-input": "^17.0.15",
     "ng-otp-input": "^1.8.1",
     "ng2-tel-input": "^2.3.0",
-    "ngx-spinner": "^13.1.1",
+    "ngx-spinner": "^10.0.1",
     "ngx-toastr": "^14.2.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

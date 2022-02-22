@@ -1,5 +1,5 @@
 import { environment } from './../environments/environment.prod';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,7 @@ import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
 import { RefferalAgentComponent } from './refferal-agent/refferal-agent.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
+import { HomeComponent } from './layout/home/home.component';
 
 
 
@@ -34,7 +35,8 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
     VerifyCodeComponent,
     ThankYouPageComponent,
     RefferalAgentComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent
 
   ],
   imports: [
@@ -50,9 +52,11 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     NgOtpInputModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    // CountdownTimerModule.forRoot()
   ],
-  providers: [NgxSpinnerService],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class AppModule { }

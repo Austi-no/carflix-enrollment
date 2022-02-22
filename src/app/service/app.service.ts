@@ -33,4 +33,27 @@ export class AppService {
   getAllAgents(): any {
     return this.firestore.collection("enrollment")
   }
+
+  // getAgentById(id: any): any {
+  //   return this.firestore.collection("enrollment").doc(id).ref.get()
+
+  // }
+
+  getAgentByRefID(refID: any): any {
+    // return (this.firestore.doc(`enrollment/${refID}`).ref.get())
+
+    return this.firestore.collection('enrollment', ref => ref.where("RefID", "==", refID)).get().subscribe((ss: any) => {
+      console.log(ss);
+
+      if (ss.docs.length === 0) {
+        console.log('Document not found! Try again!');
+      } else {
+        ss.docs.forEach((doc: any) => {
+
+          console.log(doc.data());
+
+        })
+      }
+    })
+  }
 }

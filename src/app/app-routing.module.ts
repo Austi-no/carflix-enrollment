@@ -1,3 +1,4 @@
+import { HomeComponent } from './layout/home/home.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.component';
 import { VerificationComponent } from './security/verification/verification.component';
@@ -8,7 +9,9 @@ import { SignUpComponent } from './security/sign-up/sign-up.component';
 import { RefferalAgentComponent } from './refferal-agent/refferal-agent.component';
 
 const routes: Routes = [
-  { path: '', component: VerificationComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'app' },
+
+  { path: 'app/:id', component: HomeComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'verifyCode', component: VerifyCodeComponent },
   { path: 'thank-you', component: ThankYouPageComponent },

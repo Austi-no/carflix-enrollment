@@ -1,3 +1,4 @@
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { AppService } from './../service/app.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,16 +15,18 @@ export class RefferalAgentComponent implements OnInit {
   enrolledUsers: any = []
   agentList: any = [];
   baseURL: any
-  constructor(private fb: FormBuilder, private service: AppService, private toastr: ToastrService) { }
+  constructor(private fb: FormBuilder, private spinner: NgxSpinnerService, private service: AppService, private toastr: ToastrService) { }
 
   ngOnInit() {
+
+    this.getAgents()
     this.baseURL = location.origin
     this.form = this.fb.group({
       RefID: ['', Validators.required],
       name: ['', Validators.required],
       enrolledUsers: []
     })
-    this.getAgents()
+
 
     // console.log(location.origin);
     // console.log(location.href);
@@ -31,6 +34,7 @@ export class RefferalAgentComponent implements OnInit {
   }
 
   getAgents() {
+    this.spinner.show()
     this.service.getAllAgents().snapshotChanges().pipe(
       map((changes: any) =>
         changes.map((c: any) =>
@@ -38,6 +42,7 @@ export class RefferalAgentComponent implements OnInit {
         ))
     ).subscribe((data: any) => {
       this.agentList = data
+      this.spinner.hide()
 
     });
   }
