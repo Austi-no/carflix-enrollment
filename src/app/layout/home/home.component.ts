@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
   constructor(private service: AppService, private fireStore: AngularFirestore) { }
 
   ngOnInit() {
+    console.log(this.refID)
+    console.log(location.origin);
+    console.log(location.href);
+    console.log(location.pathname);
     // this.service.getAgentById(this.refID).then(function (doc: any) {
     //   if (doc.exists) {
     //     console.log(doc.data());
@@ -41,15 +45,15 @@ export class HomeComponent implements OnInit {
     //   }
     // })
 
-    this.itemsCollection = this.fireStore.collection('enrollment', ref => ref.where("RefID", "==", this.refID));
+    // this.itemsCollection = this.fireStore.collection('enrollment', ref => ref.where("RefID", "==", this.refID));
 
-    this.items = this.itemsCollection.valueChanges().map((changes: any) => {
-      return changes.map((a: any) => {
-        const data = a.payload.doc.data() as Enrollment;
-        data.id = a.payload.doc.id;
-        return data;
-      });
-    });
+    // this.items = this.itemsCollection.valueChanges().map((changes: any) => {
+    //   return changes.map((a: any) => {
+    //     const data = a.payload.doc.data() as Enrollment;
+    //     data.id = a.payload.doc.id;
+    //     return data;
+    //   });
+    // });
 
 
 
