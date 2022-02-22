@@ -1,3 +1,4 @@
+
 import { environment } from './../environments/environment.prod';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RefferalAgentComponent } from './refferal-agent/refferal-agent.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { HomeComponent } from './layout/home/home.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -55,7 +57,7 @@ import { HomeComponent } from './layout/home/home.component';
     NgxSpinnerModule,
     // CountdownTimerModule.forRoot()
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })

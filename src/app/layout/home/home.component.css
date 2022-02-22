@@ -2777,3 +2777,40 @@ iframe {border: none;}
 
 
 
+.quiz-top-area .quiz-countdown {
+  top: 15px;
+  right: 10%;
+  position: absolute;
+}
+.quiz-top-area .quiz-countdown li {
+  width: 70px;
+  height: 52px;
+  margin-left: 12px;
+  border-radius: 8px;
+  position: relative;
+  display: inline-block;
+  background-color: #e6e6e6;
+}
+.quiz-top-area .quiz-countdown li:after {
+  top: 0;
+  right: -12px;
+  content: ":";
+  color: #ed1b34;
+  font-size: 30px;
+  position: absolute;
+}
+.quiz-top-area .quiz-countdown li:last-child:after {
+  display: none;
+}
+.quiz-top-area .quiz-countdown .count-down-number {
+  font-size: 38px;
+  line-height: 50px;
+  font-family: "Open Sans";
+}
+.quiz-top-area .quiz-countdown .count-unit {
+  display: block;
+  color: #ed1b34;
+  margin-top: 5px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
