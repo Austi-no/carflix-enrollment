@@ -42,6 +42,7 @@ export class SignUpComponent implements OnInit {
       this.submitted = false
       this.spinner.hide()
       if (res.code == "200" || res.code == "201") {
+        sessionStorage.setItem("savedUser", JSON.stringify(this.signUpForm.value.firstName + " " + this.signUpForm.value.lastName))
         this.toastr.success(res.message, res.data)
         this.router.navigate(['thank-you'])
       }

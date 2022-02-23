@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./thank-you-page.component.css']
 })
 export class ThankYouPageComponent implements OnInit {
-  green: any
+  savedUser = JSON.parse(sessionStorage.getItem('savedUser') || '')
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    console.log(this.savedUser);
+
   }
 
 }
