@@ -42,6 +42,7 @@ export class RefferalAgentComponent implements OnInit {
         ))
     ).subscribe((data: any) => {
       this.agentList = data
+      console.log(this.agentList)
       this.spinner.hide()
 
     });
