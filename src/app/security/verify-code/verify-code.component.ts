@@ -46,7 +46,7 @@ export class VerifyCodeComponent implements OnInit {
       console.log(res);
       sessionStorage.setItem("dealerID", JSON.stringify(res?.user?.uid))
       sessionStorage.setItem("phoneNumber", JSON.stringify(res?.user?.phoneNumber))
-      this.router.navigate(['/sign-up'])
+      this.router.navigate(['sign-up'])
       this.submitted = false
 
     }).catch((error: any) => {
