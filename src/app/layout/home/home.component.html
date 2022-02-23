@@ -11,9 +11,10 @@
                 <img src="../../../assets/img/logos.png" class="img-fluid" style="width: auto;max-width: 70%;">
                 <h1 class="text text-success" style="font-size: 60px;">Welcome to CarFlix</h1>
                 <h2>Please click on the button below to proceed</h2>
-                <button type="button" class="btn bg-gradient-success w-40  mb-2">Proceed</button>
-                <div
-                  class="card card-background card-background-mask-gray move-on-hover align-items-center mt-3 overflow-hidden">
+                <button type="button" class="btn bg-gradient-success w-40  mb-2" *ngIf="validRefID"
+                  (click)="proceed()">Proceed</button>
+                <div class=" card card-background card-background-mask-gray move-on-hover align-items-center mt-3
+                  overflow-hidden">
                   <div class="full-background"
                     style="background-image: url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');opacity: 0.5;">
                   </div>
@@ -49,7 +50,10 @@
     </main>
   </div>
 
-
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-ripple-multiple"
+    [fullScreen]="true">
+    <p style="color: white"> loading... </p>
+  </ngx-spinner>
 
 
   <body>

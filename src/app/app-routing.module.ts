@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'app/:id', component: HomeComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'verifyCode', component: VerifyCodeComponent },
+  { path: 'verifyPhone', component: VerificationComponent },
   { path: 'thank-you', component: ThankYouPageComponent },
   { path: 'agent', component: RefferalAgentComponent },
   { path: '**', component: NotFoundComponent }

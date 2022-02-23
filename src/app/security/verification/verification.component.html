@@ -3,19 +3,35 @@
   <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
     <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
       <div class="card z-index-0">
-        <div class="card-header text-center pt-4">
+        <div class="card-header text-center pt-4" style="padding-bottom: 0rem !important;">
           <h5>Enter Phone: </h5>
         </div>
         <div class="card-body">
-          <form>
+          <form [formGroup]="form">
+            <div class="mb-2">
+              <input type="text" class="form-control form-control-sm" value="Referral ID: {{referralAgent.RefID}}"
+                readonly>
+            </div>
             <div class="mb-3">
 
-              <input type="text" class="form-control" placeholder="Enter your phone number" [(ngModel)]="phoneNumber"
-                name="phoneNumber" aria-label="phone number">
+              <input type="text" class="form-control" placeholder="Enter your phone number"
+                formControlName="phoneNumber" aria-label="phone number">
+              <div *ngIf="f.phoneNumber.touched && f.phoneNumber.invalid">
+                <small> <span *ngIf="f.phoneNumber.errors?.required" style="color: red;">Please enter phone
+                    number</span></small>
+                <small>
+                  <span *ngIf="f.phoneNumber.errors?.noWhiteSpace" style="color: red;">Whitespace is not
+                    allowed</span>
+                </small>
+                <small>
+                  <span *ngIf="f.phoneNumber.errors?.pattern" style="color: red;">Please, Enter 11 digit Phone
+                    Number.</span>
+                </small>
+              </div>
             </div>
             <div class="text-center">
               <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2" (click)="sendVerificationCode()"
-                [disabled]="submitted == true"> Send
+                [disabled]="submitted == true || !form.valid"> Send
                 Verification code<span [className]="submitted ? 'spinner-border spinner-border-sm' : ''" role="status"
                   aria-hidden="true"></span></button>
             </div>

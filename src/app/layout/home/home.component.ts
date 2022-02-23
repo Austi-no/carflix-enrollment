@@ -1,5 +1,6 @@
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Enrollment } from './../../model/enrollment.model';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/service/app.service';
@@ -12,9 +13,10 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-  refID: string = location.pathname.substring(5, 10)
+  // var refID = url2.substr(url2.length - 5)
+  refID: string = (location.href).substring((location.href).length - 5)
   agent: any;
-
+  validRefID!: boolean
   private subscription!: Subscription;
   milliSecondsInASecond = 1000;
   hoursInADay = 24;
@@ -39,35 +41,30 @@ export class HomeComponent implements OnInit, AfterViewInit {
       timeDifference / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay)
     );
   }
-  constructor(private service: AppService, private toastr: ToastrService, private fireStore: AngularFirestore) {
+  constructor(private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService, private fireStore: AngularFirestore) {
 
   }
 
   ngOnInit() {
-
+    this.spinner.show()
     this.getTimeDifference()
-    console.log(JSON.stringify(this.secondsToDday))
-    console.log(location.origin);
-    console.log(location.href);
-    console.log(location.pathname);
 
     // this.service.getAgentByRefID(this.refID)
 
-    this.fireStore.collection('enrollment').doc("70488").ref.get().then((doc: any) => {
+    this.fireStore.collection('enrollment').doc(this.refID).ref.get().then((doc: any) => {
+      this.spinner.hide()
       if (doc.exists) {
-        console.log(doc.data());
+        this.validRefID = true
+        sessionStorage.setItem("agent", JSON.stringify(doc.data()))
 
       } else {
-        this.toastr.error("", "No Agent with such ID")
+        this.toastr.error("", "No Agent with ID: " + this.refID)
+        this.router.navigate(['**'])
       }
     }).catch((error) => {
       this.toastr.error("error", error)
+      this.spinner.hide()
     })
-
-
-
-
-
 
   }
 
@@ -87,6 +84,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   }
 
+  proceed() {
 
+    this.router.navigate(["verifyPhone"])
+  }
 
 }

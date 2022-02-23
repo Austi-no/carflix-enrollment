@@ -44,8 +44,8 @@ export class VerifyCodeComponent implements OnInit {
     var credentials = firebase.auth.PhoneAuthProvider.credential(this.verify, this.otpCode)
     firebase.auth().signInWithCredential(credentials).then((res: any) => {
       console.log(res);
-      localStorage.setItem("dealerID", JSON.stringify(res?.user?.uid))
-      localStorage.setItem("phoneNumber", JSON.stringify(res?.user?.phoneNumber))
+      sessionStorage.setItem("dealerID", JSON.stringify(res?.user?.uid))
+      sessionStorage.setItem("phoneNumber", JSON.stringify(res?.user?.phoneNumber))
       this.router.navigate(['/sign-up'])
       this.submitted = false
 

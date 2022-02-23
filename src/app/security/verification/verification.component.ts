@@ -1,3 +1,4 @@
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppService } from './../../service/app.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -6,6 +7,7 @@ import 'firebase/auth'
 import "firebase/firestore"
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
+import { WhiteValidator } from 'src/app/custom-validation/white-space.validation';
 
 
 var config = {
@@ -30,24 +32,52 @@ export class VerificationComponent implements OnInit {
   phoneNumber: any
   recaptchaVerifier: any
   windowRef: any;
-  constructor(private router: Router, private spinner: NgxSpinnerService, private toastr: ToastrService, private service: AppService) { }
+  referralAgent: any = {};
+  form!: FormGroup
+  constructor(private router: Router, private fb: FormBuilder, private spinner: NgxSpinnerService, private toastr: ToastrService, private service: AppService) { }
 
   ngOnInit() {
+    this.referralAgent = JSON.parse(sessionStorage.getItem('agent') || '')
+    console.log(this.referralAgent);
 
-    firebase.initializeApp(config)
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config)
+    } else {
+      firebase.app(); // if already initialized, use that one
+    }
+
+    this.form = this.fb.group({
+      phoneNumber: ['', [Validators.required, Validators.pattern("^((\\+23-?)|0)?[0-9]{11}$"), WhiteValidator.noWhiteSpace]],
+    })
 
   }
-
+  get f() {
+    return this.form.controls;
+  }
   sendVerificationCode() {
     this.submitted = true
-    console.log(this.phoneNumber);
+    if (this.form.invalid || this.form.errors) {
 
-    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
-    firebase.auth().signInWithPhoneNumber(this.phoneNumber, this.recaptchaVerifier).then(result => {
-      console.log(result);
-      localStorage.setItem("verificationId", JSON.stringify(result.verificationId))
-      this.router.navigate(['/verifyCode'])
+      const invalid = [];
+      const controls = this.form.controls;
+      for (const name in controls) {
+        if (controls[name].invalid) {
+          invalid.push(name);
+        }
+      }
       this.submitted = false
+      this.toastr.error('The Following fields are Invalid: ' + invalid, 'Invalid Fields');
+      return;
+
+    }
+
+    var formattedPhoneNumber = this.form.value.phoneNumber.replace(/0/, '+234');
+    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
+    firebase.auth().signInWithPhoneNumber(formattedPhoneNumber, this.recaptchaVerifier).then(result => {
+      console.log(result);
+      sessionStorage.setItem("verificationId", JSON.stringify(result.verificationId))
+      this.submitted = false
+      this.router.navigate(['verifyCode'])
     }).catch((error: any) => {
       this.submitted = false
       this.toastr.error("", error)

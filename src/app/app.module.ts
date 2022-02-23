@@ -50,6 +50,7 @@ import { DatePipe } from '@angular/common';
     HttpClientModule,
     ToastrModule.forRoot(),
     // Firebase
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
