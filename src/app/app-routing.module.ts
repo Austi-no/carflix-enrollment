@@ -12,9 +12,9 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'app' },
 
   { path: 'app/:id', component: HomeComponent },
-  { path: 'sign-up', component: SignUpComponent },
-  { path: 'verifyCode', component: VerifyCodeComponent },
   { path: 'verifyPhone', component: VerificationComponent },
+  { path: 'verifyCode', component: VerifyCodeComponent },
+  { path: 'sign-up', component: SignUpComponent },
   { path: 'thank-you', component: ThankYouPageComponent },
   { path: 'agent', component: RefferalAgentComponent },
   { path: '**', component: NotFoundComponent }

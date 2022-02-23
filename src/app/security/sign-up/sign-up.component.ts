@@ -10,8 +10,8 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  dealerID = JSON.parse(localStorage.getItem('dealerID') || '')
-  phone = JSON.parse(localStorage.getItem('phoneNumber') || '')
+  dealerID = JSON.parse(sessionStorage.getItem('dealerID') || '')
+  phone = JSON.parse(sessionStorage.getItem('phoneNumber') || '')
   signUpForm: any = FormGroup;
   submitted!: boolean
 

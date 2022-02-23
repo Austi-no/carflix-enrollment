@@ -2,7 +2,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppService } from './../../service/app.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import firebase from 'firebase/app';
+import * as firebase from "firebase"
 import 'firebase/auth'
 import "firebase/firestore"
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -38,12 +38,12 @@ export class VerificationComponent implements OnInit {
 
   ngOnInit() {
     this.referralAgent = JSON.parse(sessionStorage.getItem('agent') || '')
-    console.log(this.referralAgent);
 
-    if (!firebase.apps.length) {
-      firebase.initializeApp(config)
+
+    if (!firebase.default.apps.length) {
+      firebase.default.initializeApp(config)
     } else {
-      firebase.app(); // if already initialized, use that one
+      firebase.default.app(); // if already initialized, use that one
     }
 
     this.form = this.fb.group({
@@ -73,8 +73,8 @@ export class VerificationComponent implements OnInit {
     }
 
     var formattedPhoneNumber = this.form.value.phoneNumber.replace(/0/, '+234');
-    this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
-    firebase.auth().signInWithPhoneNumber(formattedPhoneNumber, this.recaptchaVerifier).then(result => {
+    this.recaptchaVerifier = new firebase.default.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
+    firebase.default.auth().signInWithPhoneNumber(formattedPhoneNumber, this.recaptchaVerifier).then(result => {
       console.log(result);
       this.router.navigate(['verifyCode'])
       sessionStorage.setItem("verificationId", JSON.stringify(result.verificationId))

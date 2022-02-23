@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    sessionStorage.clear()
     this.spinner.show()
     this.getTimeDifference()
 

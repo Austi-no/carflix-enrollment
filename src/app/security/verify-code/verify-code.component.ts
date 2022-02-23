@@ -41,16 +41,22 @@ export class VerifyCodeComponent implements OnInit {
 
   verifyCode() {
     this.submitted = true
+    this.spinner.show()
     var credentials = firebase.auth.PhoneAuthProvider.credential(this.verificationId, this.otpCode)
     firebase.auth().signInWithCredential(credentials).then((res: any) => {
       console.log(res);
       sessionStorage.setItem("dealerID", JSON.stringify(res?.user?.uid))
       sessionStorage.setItem("phoneNumber", JSON.stringify(res?.user?.phoneNumber))
-      this.router.navigate(['sign-up'])
+
       this.submitted = false
+      this.router.navigate(['sign-up'])
+      setTimeout(() => {
+        this.spinner.hide()
+      }, 2000);
 
     }).catch((error: any) => {
       this.submitted = false
+      this.spinner.hide()
       this.toastr.error('', error)
       console.log(error)
     })
