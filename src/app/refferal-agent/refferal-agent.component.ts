@@ -20,7 +20,7 @@ export class RefferalAgentComponent implements OnInit {
   ngOnInit() {
 
     this.getAgents()
-    this.baseURL = location.origin
+    this.baseURL = location.origin + "/#/app"
     this.form = this.fb.group({
       RefID: ['', Validators.required],
       name: ['', Validators.required],
@@ -28,9 +28,9 @@ export class RefferalAgentComponent implements OnInit {
     })
 
 
-    // console.log(location.origin);
-    // console.log(location.href);
-    // console.log(location.pathname);
+    console.log(location.origin);
+    console.log(location.href);
+    console.log(location.pathname);
   }
 
   getAgents() {

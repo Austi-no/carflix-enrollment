@@ -2,21 +2,21 @@
   <div class="col-md-6 mt-4">
     <div class="card">
       <div class="card-header pb-0 px-3">
-        <h6 class="mb-0">Billing Information</h6>
+        <h6 class="mb-0">Agent Referral Dashboard</h6>
       </div>
       <div class="card-body pt-4 p-3">
         <form [formGroup]="form">
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6 col-sm-4 col-xl-6 col-xs-12">
               <div class="form-group">
-                <label for="example-text-input" class="form-control-label">Name</label>
-                <input class="form-control" formControlName="name" type="text" required placeholder="Enter Name">
+                <!-- <label for="example-text-input" class="form-control-label">Name</label> -->
+                <input class="form-control" formControlName="name" type="text" required placeholder="Enter Agent Name">
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4 col-sm-4 col-xl-4 col-xs-12">
               <div class="form-group">
                 <label for="example-text-input" class="form-control-label"></label>
-                <button type="button" class="btn bg-gradient-dark w-100 mt-1" (click)="addAgent()">Send</button>
+                <button type="button" class="btn bg-gradient-dark  " (click)="addAgent()">Add Agent</button>
               </div>
             </div>
           </div>
