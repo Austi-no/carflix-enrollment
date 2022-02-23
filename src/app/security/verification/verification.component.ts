@@ -1,6 +1,6 @@
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppService } from './../../service/app.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as firebase from "firebase"
 import 'firebase/auth'
@@ -34,7 +34,7 @@ export class VerificationComponent implements OnInit {
   windowRef: any;
   referralAgent: any = {};
   form!: FormGroup
-  constructor(private router: Router, private fb: FormBuilder, private spinner: NgxSpinnerService, private toastr: ToastrService, private service: AppService) { }
+  constructor(private router: Router, private zone: NgZone, private fb: FormBuilder, private spinner: NgxSpinnerService, private toastr: ToastrService, private service: AppService) { }
 
   ngOnInit() {
     this.referralAgent = JSON.parse(sessionStorage.getItem('agent') || '')
@@ -76,10 +76,16 @@ export class VerificationComponent implements OnInit {
     this.recaptchaVerifier = new firebase.default.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
     firebase.default.auth().signInWithPhoneNumber(formattedPhoneNumber, this.recaptchaVerifier).then(result => {
       console.log(result);
-      this.router.navigate(['verifyCode'])
-      sessionStorage.setItem("verificationId", JSON.stringify(result.verificationId))
-      this.spinner.hide()
 
+      sessionStorage.setItem("verificationId", JSON.stringify(result.verificationId))
+      this.zone.run(() => {
+        this.router.navigate(['verifyCode'])
+      });
+      this.spinner.hide()
+      // setTimeout(() => {
+      //   this.router.navigate(['verifyCode'])
+      //   this.spinner.hide()
+      // }, 2000);
     }).catch((error: any) => {
       this.spinner.hide()
       this.toastr.error("", error)

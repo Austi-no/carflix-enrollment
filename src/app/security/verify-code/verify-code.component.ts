@@ -1,7 +1,7 @@
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import firebase from 'firebase/app';
 import 'firebase/auth'
 import "firebase/firestore"
@@ -15,7 +15,7 @@ export class VerifyCodeComponent implements OnInit {
   otpCode!: string
   verificationId: any
   submitted!: boolean
-  constructor(private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
+  constructor(private router: Router, private zone: NgZone, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
   config = {
     allowNumbersOnly: true,
@@ -49,10 +49,14 @@ export class VerifyCodeComponent implements OnInit {
       sessionStorage.setItem("phoneNumber", JSON.stringify(res?.user?.phoneNumber))
 
       this.submitted = false
-      this.router.navigate(['sign-up'])
-      setTimeout(() => {
-        this.spinner.hide()
-      }, 2000);
+      this.zone.run(() => {
+        this.router.navigate(['sign-up'])
+      });
+      this.spinner.hide()
+      // setTimeout(() => {
+      //   this.spinner.hide()
+      //   this.router.navigate(['sign-up'])
+      // }, 2000);
 
     }).catch((error: any) => {
       this.submitted = false

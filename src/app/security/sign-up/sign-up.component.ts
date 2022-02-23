@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { AppService } from './../../service/app.service';
 import { ToastrService } from 'ngx-toastr';
@@ -15,7 +16,7 @@ export class SignUpComponent implements OnInit {
   signUpForm: any = FormGroup;
   submitted!: boolean
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private service: AppService, private toastr: ToastrService) { }
+  constructor(private formBuilder: FormBuilder, private spinner: NgxSpinnerService, private router: Router, private service: AppService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -32,15 +33,17 @@ export class SignUpComponent implements OnInit {
   }
 
   signUp() {
+    this.spinner.show()
     this.submitted = true
     this.signUpForm.get('dealerId').setValue(this.dealerID)
     this.service.signUp(this.signUpForm.value).subscribe((res: any) => {
       console.log(res)
 
       this.submitted = false
+      this.spinner.hide()
       if (res.code == "200" || res.code == "201") {
         this.toastr.success(res.message, res.data)
-        this.router.navigate(['/thank-you'])
+        this.router.navigate(['thank-you'])
       }
       if (res.code == "300") {
         this.toastr.error(res.message, res.data)
@@ -72,6 +75,7 @@ export class SignUpComponent implements OnInit {
         console.log('', error)
         this.toastr.error('Error!');
         this.submitted = false
+        this.spinner.hide()
       }
 
   }
