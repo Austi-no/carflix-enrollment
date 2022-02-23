@@ -55,6 +55,7 @@ export class VerificationComponent implements OnInit {
     return this.form.controls;
   }
   sendVerificationCode() {
+    this.spinner.show()
     this.submitted = true
     if (this.form.invalid || this.form.errors) {
 
@@ -75,11 +76,12 @@ export class VerificationComponent implements OnInit {
     this.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign-in-button", { size: 'invisible' })
     firebase.auth().signInWithPhoneNumber(formattedPhoneNumber, this.recaptchaVerifier).then(result => {
       console.log(result);
-      sessionStorage.setItem("verificationId", JSON.stringify(result.verificationId))
-      this.submitted = false
       this.router.navigate(['verifyCode'])
+      sessionStorage.setItem("verificationId", JSON.stringify(result.verificationId))
+      this.spinner.hide()
+
     }).catch((error: any) => {
-      this.submitted = false
+      this.spinner.hide()
       this.toastr.error("", error)
     })
 

@@ -13,7 +13,7 @@ import "firebase/firestore"
 })
 export class VerifyCodeComponent implements OnInit {
   otpCode!: string
-  verify: any
+  verificationId: any
   submitted!: boolean
   constructor(private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService) { }
 
@@ -30,7 +30,7 @@ export class VerifyCodeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.verify = JSON.parse(localStorage.getItem('verificationId') || '')
+    this.verificationId = JSON.parse(sessionStorage.getItem('verificationId') || '')
 
   }
 
@@ -41,7 +41,7 @@ export class VerifyCodeComponent implements OnInit {
 
   verifyCode() {
     this.submitted = true
-    var credentials = firebase.auth.PhoneAuthProvider.credential(this.verify, this.otpCode)
+    var credentials = firebase.auth.PhoneAuthProvider.credential(this.verificationId, this.otpCode)
     firebase.auth().signInWithCredential(credentials).then((res: any) => {
       console.log(res);
       sessionStorage.setItem("dealerID", JSON.stringify(res?.user?.uid))
