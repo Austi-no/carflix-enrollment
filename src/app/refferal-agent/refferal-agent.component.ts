@@ -51,7 +51,7 @@ export class RefferalAgentComponent implements OnInit {
     this.refID = Math.floor(Math.random() * 90000) + 10000
     this.form.get('RefID').setValue(this.refID)
     this.form.get('enrolledUsers').setValue(this.enrolledUsers)
-    this.service.addAgent(this.form.value)
+    this.service.addAgent(this.form.value, this.refID)
     this.getAgents()
 
 

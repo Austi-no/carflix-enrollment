@@ -18,9 +18,9 @@ export class AppService {
   }
 
 
-  addAgent(value: any) {
+  addAgent(value: any, id: any) {
     return new Promise<any>((resolve, reject) => {
-      this.firestore.collection("enrollment").add(value).then(res => {
+      this.firestore.collection("enrollment").doc(JSON.stringify(id)).set(value).then(res => {
         this.toastr.success("", "Agent Added Successfully!")
       }, (err: any) => {
         reject(err);
