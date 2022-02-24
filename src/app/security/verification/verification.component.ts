@@ -32,13 +32,15 @@ export class VerificationComponent implements OnInit {
   phoneNumber: any
   recaptchaVerifier: any
   windowRef: any;
-  referralAgent: any = {};
   form!: FormGroup
+  referralAgent = JSON.parse(sessionStorage.getItem('agent') || '')
   constructor(private router: Router, private zone: NgZone, private fb: FormBuilder, private spinner: NgxSpinnerService, private toastr: ToastrService, private service: AppService) { }
 
   ngOnInit() {
-    this.referralAgent = JSON.parse(sessionStorage.getItem('agent') || '')
 
+    if (sessionStorage.getItem('agent') === null) {
+      this.router.navigate([''])
+    }
 
     if (!firebase.default.apps.length) {
       firebase.default.initializeApp(config)
