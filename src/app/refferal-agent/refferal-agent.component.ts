@@ -28,9 +28,9 @@ export class RefferalAgentComponent implements OnInit {
     })
 
 
-    console.log(location.origin);
-    console.log(location.href);
-    console.log(location.pathname);
+    // console.log(location.origin);
+    // console.log(location.href);
+    // console.log(location.pathname);
   }
 
   getAgents() {
