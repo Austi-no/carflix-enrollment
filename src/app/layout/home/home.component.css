@@ -61,6 +61,272 @@
   transform: scale(1.3);
   }
 
+  .certificate{
+    max-width: 200px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 10px;
+    max-height: 80px;
+  }
+
+  .logo{
+
+      max-width: 200px;
+      margin-left: 50px;
+      margin-top: 10px;
+
+  }
+
+  .enrolledCars{
+    border: 3px solid white;
+    margin-left: 30px;
+    padding: 5px;
+  }
+
+  @media (min-width:280px) and (max-width:653px) {
+    .logo {
+      max-width: 100px;
+      margin-left: 10px;
+      margin-top: 10px;
+  }
+  .certificate{
+    cursor: pointer;
+    margin-right: 15px;
+    max-height: 40px;
+
+  }
+  .content-row{
+    --bs-gutter-x: 1.5rem;
+    /* --bs-gutter-y: 0; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    margin-top: 0;
+     margin-right: 0;
+     margin-left: 0;
+     display: block;
+
+  }
+  .welcome-content{
+    width: 100%;
+    padding-top: 10px !important;
+  }
+
+  .enrolledCars{
+    text-align: center;
+  }
+
+  .applicationImage{
+    width: inherit;
+  }
+
+}
+
+  @media (min-width:375px) and (max-width:667px) {
+    .logo {
+      max-width: 200px;
+      margin-left: 10px;
+      margin-top: 10px;
+  }
+  .certificate{
+    cursor: pointer;
+    margin-right: 15px;
+
+  }
+  .content-row{
+    --bs-gutter-x: 1.5rem;
+    /* --bs-gutter-y: 0; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    margin-top: 0;
+     margin-right: 0;
+     margin-left: 0;
+     display: block;
+
+  }
+
+  .content-row h4{
+    text-align: center;
+  }
+  .container{
+    padding-left: var(--bs-gutter-x,0.5rem);
+  }
+  .callSection{
+    text-align: center;
+  }
+  .enrolledCars{
+    text-align: center;
+  }
+  .applicationImage{
+    width: inherit;
+  }
+
+
+}
+
+@media (min-width:360px) and (max-width:740px) {
+  .logo {
+    max-width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.certificate{
+  cursor: pointer;
+  margin-right: 15px;
+
+}
+.content-row{
+  --bs-gutter-x: 1.5rem;
+  /* --bs-gutter-y: 0; */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  margin-top: 0;
+   margin-right: 0;
+   margin-left: 0;
+   display: block;
+
+}
+
+.content-row h4{
+  text-align: center;
+}
+.container{
+  padding-left: var(--bs-gutter-x,0.5rem);
+}
+.callSection{
+  text-align: center;
+}
+.enrolledCars{
+  text-align: center;
+}
+.applicationImage{
+  width: inherit;
+}
+
+
+}
+
+@media (min-width:820px) and (max-width:1180px) {
+  .logo {
+    max-width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.certificate{
+  cursor: pointer;
+  margin-right: 15px;
+
+}
+.welcome-content{
+  width: 100%;
+}
+.content-row{
+  --bs-gutter-x: 1.5rem;
+  margin-top: 0;
+   margin-right: 0;
+   margin-left: 0;
+   display: block;
+}
+.content-row h4{
+  text-align: center;
+}
+.container{
+  padding-left: var(--bs-gutter-x,0.5rem);
+}
+.callSection{
+  text-align: center;
+}
+.enrolledCars{
+  text-align: center;
+}
+.applicationImage{
+  width: inherit;
+}
+.application-column{
+ width: 100%;;
+}
+}
+
+@media (min-width:768px) and (max-width:1024px) {
+  .logo {
+    max-width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.certificate{
+  cursor: pointer;
+  margin-right: 15px;
+
+}
+.welcome-content{
+  width: 100%;
+}
+.content-row{
+  --bs-gutter-x: 1.5rem;
+  margin-top: 0;
+   margin-right: 0;
+   margin-left: 0;
+   display: block;
+}
+.content-row h4{
+  text-align: center;
+}
+.container{
+  padding-left: var(--bs-gutter-x,0.5rem);
+}
+.callSection{
+  text-align: center;
+}
+.enrolledCars{
+  text-align: center;
+}
+.applicationImage{
+  width: inherit;
+}
+.application-column{
+ width: 100%;;
+}
+}
+
+@media (min-width:1024px) and (max-width:600px) {
+  .logo {
+    max-width: 200px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.certificate{
+  cursor: pointer;
+  margin-right: 15px;
+
+}
+.welcome-content{
+  width: 100%;
+}
+.content-row{
+  --bs-gutter-x: 1.5rem;
+  margin-top: 0;
+   margin-right: 0;
+   margin-left: 0;
+   display: block;
+}
+.content-row h4{
+  text-align: center;
+}
+.container{
+  padding-left: var(--bs-gutter-x,0.5rem);
+}
+.callSection{
+  text-align: center;
+}
+.enrolledCars{
+  text-align: center;
+}
+.applicationImage{
+  width: 50%;
+}
+.application-column{
+  text-align: center;
+}
+}
 
 
   .progress {
