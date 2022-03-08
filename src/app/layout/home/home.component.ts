@@ -14,6 +14,8 @@ import { DatePipe } from '@angular/common';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
   // var refID = url2.substr(url2.length - 5)
+  showFlag: boolean = false;
+  selectedImageIndex: number = -1;
   refID: string = (location.href).substring((location.href).length - 5)
   agent: any;
   validRefID!: boolean
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   public minutesToDday: any
   public hoursToDday: any
   public daysToDday: any
+  currentIndex: any;
 
   private allocateTimeUnits(timeDifference: number) {
     this.secondsToDday = Math.floor((timeDifference / this.milliSecondsInASecond) % this.SecondsInAMinute);
@@ -41,6 +44,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
       timeDifference / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay)
     );
   }
+
+
+  imageObject: Array<object> = [{
+    image: 'assets/img/cert.jpg',
+    alt: 'Coporation', // Optional
+    title: 'Certificate of Incorporation' // Optional: Show image with description text
+  }
+
+  ];
   constructor(private router: Router, private toastr: ToastrService, private spinner: NgxSpinnerService, private fireStore: AngularFirestore) {
 
   }
@@ -88,6 +100,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
   proceed() {
 
     this.router.navigate(["verifyPhone"])
+  }
+
+  showLightbox(index: any) {
+    this.selectedImageIndex = index;
+    this.showFlag = true;
+  }
+
+  closeEventHandler() {
+    this.showFlag = false;
+    this.currentIndex = -1;
   }
 
 }

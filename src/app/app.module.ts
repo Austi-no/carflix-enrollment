@@ -23,7 +23,7 @@ import { RefferalAgentComponent } from './refferal-agent/refferal-agent.componen
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { HomeComponent } from './layout/home/home.component';
 import { DatePipe } from '@angular/common';
-
+import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 
 
 
@@ -55,7 +55,7 @@ import { DatePipe } from '@angular/common';
     AngularFireAuthModule,
     AngularFirestoreModule,
     NgOtpInputModule,
-    NgxSpinnerModule,
+    NgxSpinnerModule, NgImageFullscreenViewModule
     // CountdownTimerModule.forRoot()
   ],
   providers: [DatePipe],
