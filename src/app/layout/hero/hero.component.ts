@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements OnInit {
-
+vid = document.getElementById("video-container");
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    
+// this.vid?.muted = true;
+console.log(this.vid);
+
   }
 
 }

@@ -1,5 +1,9 @@
 
-
+.proceedButton{
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+}
 
 
 .countdown-container {
@@ -63,13 +67,28 @@
   }
 
   .certificate{
-    max-width: 200px;
+    max-width: 300px;
     float: right;
-    margin-right: 50px;
-    margin-top: 10px;
-    max-height: 80px;
+    margin-right: 10px;
+    margin-top: 5px;
+    max-height: 50px;
     cursor: pointer;
   }
+  .img-description{
+    float: right;
+    margin-top: 56px;
+    text-align: center;
+    font-size: 10px;
+    margin-right: -50px;
+    color: red;
+    font-weight: 700;
+  }
+.feature-icon{
+  padding: 10px;
+  background: #348395;
+  color: white;
+  border-radius: 100%;
+}
 
   .logo{
 
@@ -80,9 +99,11 @@
   }
 
   .enrolledCars{
-    border: 3px solid white;
-    margin-left: 30px;
+    /* border: 3px solid white; */
+    /* margin-left: 30px; */
     padding: 5px;
+    color: red;
+    font-weight: 600;
   }
 
   @media (min-width:280px) and (max-width:653px) {
