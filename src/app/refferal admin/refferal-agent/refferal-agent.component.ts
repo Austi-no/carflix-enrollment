@@ -1,5 +1,5 @@
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
-import { AppService } from './../service/app.service';
+import { AppService } from '../../service/app.service';
 import { ToastrService } from 'ngx-toastr';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';

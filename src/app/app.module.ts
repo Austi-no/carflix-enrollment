@@ -19,7 +19,7 @@ import { NgOtpInputModule } from 'ng-otp-input';
 import { ThankYouPageComponent } from './layout/thank-you-page/thank-you-page.component';
 import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
-import { RefferalAgentComponent } from './refferal-agent/refferal-agent.component';
+import { RefferalAgentComponent } from './refferal admin/refferal-agent/refferal-agent.component';
 import { NotFoundComponent } from './layout/not-found/not-found.component';
 import { HomeComponent } from './layout/home/home.component';
 import { DatePipe } from '@angular/common';

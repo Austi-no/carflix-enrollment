@@ -4,13 +4,25 @@ import { environment } from 'src/environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
+// import { User } from 'firebase';
+import { Router } from "@angular/router";
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
   baseUrl: string = environment.baseUrl + 'dealer/';
+  // user!: User;
   private collection!: AngularFirestoreCollection;
-  constructor(private http: HttpClient, private toastr: ToastrService, private firestore: AngularFirestore) { }
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService, private firestore: AngularFirestore) {
+    // this.firestore.authState.subscribe(user => {
+    //   if (user) {
+    //     this.user = user;
+    //     sessionStorage.setItem('user', JSON.stringify(this.user));
+    //   } else {
+    //     sessionStorage.setItem('user', null);
+    //   }
+    // })
+  }
 
 
   signUp(value: any): any {
@@ -56,4 +68,17 @@ export class AppService {
       }
     })
   }
+
+
+
+  // async login(email: string, password: string) {
+  //   var result = await this.firestore.auth.signInWithEmailAndPassword(email, password)
+  //   this.router.navigate(['agent']);
+  // }
+
+  // async logout() {
+  //   await this.firestore.auth.signOut();
+  //   sessionStorage.removeItem('user');
+  //   this.router.navigate(['login']);
+  // }
 }
