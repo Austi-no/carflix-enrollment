@@ -1,15 +1,15 @@
 .advert{
-padding-bottom: 60%;
+  padding-bottom: 38%;
 }
 
 
 .car-auctioning{
-  padding-bottom: 62%;
+  padding-bottom: 38%;
 }
 
-.p2p-payment{
+/* .p2p-payment{
   padding-bottom: 30%;
-}
+} */
 
 .countersection{
   background: black;
@@ -99,6 +99,9 @@ body {
   min-height: 400px;
   margin-bottom: 100px;
   clear: both;
+}
+.col-lg-5,.col-md-5{
+  margin-top: -25rem !important;
 }
 
 .flex-w {
