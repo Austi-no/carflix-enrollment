@@ -18,8 +18,8 @@
 }
 .service-card:hover{
   background: #42d2a4;
-  border-right: 5px solid orange;
-  border-left: 5px solid orange;
+  border-right: 5px solid red;
+  border-left: 5px solid red;
   color: white;
 }
 
