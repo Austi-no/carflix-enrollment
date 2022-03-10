@@ -28,7 +28,7 @@
       <!-- <video id="videoBG" poster="poster.JPG" autoplay muted loop>
         <source src="assets/vid/logointro.mp4" type="video/mp4">
       </video> -->
-      <div class="row content-row  pt-5 align-items-center">
+      <div class="row content-row  pt-2 align-items-center">
         <div class="welcome-content col-lg-7 col-md-7 col-sm-12 col-xs-12">
           <!-- Mashead text and app badges-->
           <div class="mb-5 mb-lg-0 text-lg-start">
@@ -48,7 +48,7 @@
                 <div class="col-md-3 mb-2 align-items-stretch">
                   <a>
                     <div class="card service-card card-inverse">
-                      <div class="card-body text-center" style="    padding-bottom: 60%;">
+                      <div class="card-body mb-4 text-center advert">
                         <span><img src="https://img.icons8.com/color/48/000000/billboard.png" /></span>
                         <p class="card-text">Adverts</p>
                       </div>
@@ -59,8 +59,8 @@
 
                 <div class="col-md-3 mb-2">
                   <a>
-                    <div class="card service-card card-inverse" style="    padding-bottom: 48%;">
-                      <div class="card-body text-center">
+                    <div class="card service-card card-inverse">
+                      <div class="card-body mb-4 text-center car-auctioning">
                         <span><img src="https://img.icons8.com/color/48/000000/carpool.png" /></span>
                         <p class="card-text">Car Auctioning</p>
                       </div>
@@ -71,7 +71,7 @@
                 <div class="col-md-3 mb-2">
                   <a>
                     <div class="card service-card card-inverse">
-                      <div class="card-body text-center" style="    padding-bottom: 30%;">
+                      <div class="card-body mb-4 text-center p2p-payment">
                         <span><img src="https://img.icons8.com/color/48/000000/mobile-payment.png" /></span>
                         <p class="card-text">P2p payments directly to car dealers</p>
                       </div>
@@ -86,7 +86,7 @@
                 <div class="col-md-3 mb-2">
                   <a>
                     <div class="card service-card card-inverse">
-                      <div class="card-body text-center">
+                      <div class="card-body mb-4 text-center">
                         <span><img src="https://img.icons8.com/color/50/000000/user-male.png" /></span>
                         <p class="card-text">Agent Car Inspection (Free for Buyers/Dealers)</p>
                       </div>
@@ -97,7 +97,7 @@
                 <div class="col-md-3 mb-2">
                   <a>
                     <div class="card service-card card-inverse">
-                      <div class="card-body text-center">
+                      <div class="card-body mb-4 text-center">
                         <span><img src="https://img.icons8.com/color/48/000000/point-objects.png" /></span>
                         <p class="card-text">Location Mapping and Transport Calculations</p>
                       </div>
@@ -108,7 +108,7 @@
                 <div class="col-md-3 mb-2">
                   <a>
                     <div class="card service-card card-inverse">
-                      <div class="card-body text-center">
+                      <div class="card-body mb-4 text-center">
                         <span><img src="https://img.icons8.com/color/48/000000/android-os.png" /></span>
                         <p class="card-text">And a whole lot more on our mobile Application</p>
                       </div>
@@ -144,7 +144,7 @@
               questions or concerns, please don’t hesitate to call or email <a
                 href="tel:+2349056421451"><strong>09056421451</strong></a> || <a
                 href="mailto:support@carflix.ng"><strong>support@carflix.ng</strong></a></p>
-            <div class="d-flex flex-column flex-lg-row align-items-center">
+            <div class="d-flex flex-column flex-lg-row align-items-center mt-3">
               <button type="button" class="proceedButton btn btn-md bg-gradient-success   mb-2 mr-3" (click)="proceed()"
                 *ngIf="validRefID">Join
                 Carflix Today
@@ -153,37 +153,35 @@
 
             </div>
 
-            <div class="card" style="     background: black;
 
-              max-width: 16rem;
-              text-align: center;
-              border-radius: 20px;">
-              <div class="wsize2 flex-w flex-c hsize1 cd100">
-                <div class="flex-col-c-m size2 how-countdown">
-                  <span class="l1-txt1 p-b-9 days">0</span>
+            <div class="d-flex flex-column flex-lg-row align-items-center mt-3">
+              <div class="card countersection">
+                <div class="wsize2 flex-w flex-c hsize1 cd100">
+                  <div class="flex-col-c-m size2 how-countdown">
+                    <span class="l1-txt1 p-b-9 days">0</span>
+
+                  </div>
+
+                  <div class="flex-col-c-m size2 how-countdown">
+                    <span class="l1-txt1 p-b-9 hours">4</span>
+
+                  </div>
+
+                  <div class="flex-col-c-m size2 how-countdown">
+                    <span class="l1-txt1 p-b-9 minutes">2</span>
+
+                  </div>
+
+                  <div class="flex-col-c-m size2 how-countdown">
+                    <span class="l1-txt1 p-b-9 seconds">4</span>
+
+                  </div>
 
                 </div>
-
-                <div class="flex-col-c-m size2 how-countdown">
-                  <span class="l1-txt1 p-b-9 hours">4</span>
-
-                </div>
-
-                <div class="flex-col-c-m size2 how-countdown">
-                  <span class="l1-txt1 p-b-9 minutes">2</span>
-
-                </div>
-
-                <div class="flex-col-c-m size2 how-countdown">
-                  <span class="l1-txt1 p-b-9 seconds">4</span>
-
-                </div>
+                <p class="lead fw-normal text-white ">Car Dealers Enrolled</p>
 
               </div>
-              <p class="lead fw-normal text-white ">Car Dealers Enrolled</p>
-
             </div>
-
 
           </div>
         </div>
@@ -291,14 +289,14 @@
     </div>
 
   </div>
-  <div class="container">
-    <div class="mb-5 text-center">
-      <small style="cursor: pointer;margin-bottom: 50px;font-style: italic;" (click)="showLightbox(0)"><i
-          class="fa fa-check-circle mr-2" style="color: green;"></i>Your information is safe we
-        are
-        Registered and Regulated click above (top-right) to view company information</small>
+  <div class="container mb-2">
+    <div class=" text-center">
+      <p style="cursor: pointer;font-style: italic;"><i class="fa fa-check-circle mr-2" style="color: green;"></i>Your
+        information is safe we are Registered and
+        Regulated <br> click above (top-right) to view company information</p>
     </div>
   </div>
+
 
   <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-ripple-multiple"
     [fullScreen]="true">

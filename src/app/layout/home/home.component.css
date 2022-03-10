@@ -1,7 +1,26 @@
-.service-categories{
-  padding-top: 3em;
-  padding-bottom: 3em;
+.advert{
+padding-bottom: 60%;
 }
+
+
+.car-auctioning{
+  padding-bottom: 62%;
+}
+
+.p2p-payment{
+  padding-bottom: 30%;
+}
+
+.countersection{
+  background: black;
+  max-width: 16rem;
+  text-align: center;
+  border-radius: 20px;
+  /* align-items: center; */
+}
+
+
+
 /*DEMO ONLY*/
 .service-categories .card{
   transition: all 0.2s;
@@ -76,7 +95,11 @@
   /* margin: 20px 0; */
   border-radius: 5px;
 }
-
+body {
+  min-height: 400px;
+  margin-bottom: 100px;
+  clear: both;
+}
 
 .flex-w {
 	-webkit-flex-wrap: wrap;
@@ -84,6 +107,7 @@
 	-ms-flex-wrap: wrap;
 	-o-flex-wrap: wrap;
 	flex-wrap: wrap;
+  margin-right: 10px;
 }
 .p-b-9 {padding-bottom: 9px;}
 
@@ -131,18 +155,7 @@
   opacity: 0.1;
 }
 
-/* #background-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
- background-color:  #f8f9fa;
-} */
+
 
 
  .cert:hover img  {
@@ -200,11 +213,13 @@
     max-height: 40px;
 
   }
+  .countersection{
+    min-width: 100%;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
   .content-row{
     --bs-gutter-x: 1.5rem;
-    /* --bs-gutter-y: 0; */
-    /* display: flex; */
-    /* flex-wrap: wrap; */
     margin-top: 0;
      margin-right: 0;
      margin-left: 0;
@@ -219,6 +234,10 @@
   .enrolledCars{
     text-align: center;
   }
+  .service-card{
+    max-width: 60%;
+    margin-left: 20%;
+  }
 
   .applicationImage{
     width: inherit;
@@ -231,6 +250,17 @@
       max-width: 200px;
       margin-left: 10px;
       margin-top: 10px;
+  }.card-body{
+padding-bottom: 0px;
+  }
+  .countersection{
+    min-width: 100%;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  .service-card{
+    max-width: 60%;
+    margin-left: 20%;
   }
   .certificate{
     cursor: pointer;
@@ -274,6 +304,18 @@
     margin-left: 10px;
     margin-top: 10px;
 }
+.countersection{
+  min-width: 100%;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.card-body{
+  padding-bottom: 0px;
+    }
+    .service-card{
+      max-width: 60%;
+      margin-left: 20%;
+    }
 .certificate{
   cursor: pointer;
   margin-right: 15px;
@@ -316,6 +358,9 @@
     margin-left: 10px;
     margin-top: 10px;
 }
+.card-body{
+  padding-bottom: 0px;
+    }
 .certificate{
   cursor: pointer;
   margin-right: 15px;
