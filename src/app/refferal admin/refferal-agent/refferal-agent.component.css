@@ -4,3 +4,9 @@
     cursor: pointer;
     color: black;
 }
+
+body {
+  min-height: 400px;
+  margin-bottom: 80px;
+  clear: both;
+}

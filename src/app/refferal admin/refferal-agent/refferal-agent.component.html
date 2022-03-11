@@ -1,61 +1,66 @@
-<div class="row justify-content-center">
-  <div class="col-md-6 mt-4">
-    <div class="card">
-      <div class="card-header pb-0 px-3">
-        <h6 class="mb-0">Agent Referral Dashboard</h6>
-        <i class="fa fa-sign-out float-right" (click)="signOut()"></i>
-      </div>
-      <div class="card-body pt-4 p-3">
-        <form [formGroup]="form">
-          <div class="row">
-            <div class="col-md-6 col-sm-4 col-xl-6 col-xs-12">
-              <div class="form-group">
-                <!-- <label for="example-text-input" class="form-control-label">Name</label> -->
-                <input class="form-control" formControlName="name" type="text" required placeholder="Enter Agent Name">
+<body>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 mt-4">
+      <div class="card">
+        <div class="card-header pb-0 px-3">
+          <h6 class="mb-0">Agent Referral Dashboard</h6>
+          <i class="fa fa-sign-out float-right" (click)="signOut()"></i>
+        </div>
+        <div class="card-body pt-4 p-3">
+          <form [formGroup]="form">
+            <div class="row">
+              <div class="col-md-6 col-sm-4 col-xl-6 col-xs-12">
+                <div class="form-group">
+                  <!-- <label for="example-text-input" class="form-control-label">Name</label> -->
+                  <input class="form-control" formControlName="name" type="text" required
+                    placeholder="Enter Agent Name">
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xl-4 col-xs-12">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label"></label>
+                  <button type="button" class="btn bg-gradient-dark  " (click)="addAgent()">Add Agent</button>
+                </div>
               </div>
             </div>
-            <div class="col-md-4 col-sm-4 col-xl-4 col-xs-12">
-              <div class="form-group">
-                <label for="example-text-input" class="form-control-label"></label>
-                <button type="button" class="btn bg-gradient-dark  " (click)="addAgent()">Add Agent</button>
+          </form>
+
+
+          <ul class="list-group">
+            <li *ngFor="let list of agentList"
+              class="row list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+              <div class="col-md-8">
+                <div class="d-flex flex-column">
+                  <h6 class="mb-3 text-sm">{{list.name}}</h6>
+                  <span class="mb-2 text-xs">Referral link:
+
+                  </span>
+                  <span class="text-dark text-xs font-weight-bold ">
+                    <u>
+                      <a href="{{baseURL}}/{{list.RefID}}">{{baseURL}}/<strong>{{list.RefID}}</strong>
+                      </a>
+                    </u>
+                  </span>
+
+                </div>
               </div>
-            </div>
-          </div>
-        </form>
-
-
-        <ul class="list-group">
-          <li *ngFor="let list of agentList"
-            class="row list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
-            <div class="col-md-8">
-              <div class="d-flex flex-column">
-                <h6 class="mb-3 text-sm">{{list.name}}</h6>
-                <span class="mb-2 text-xs">Referral link:
-
-                </span>
-                <span class="text-dark text-xs font-weight-bold ">
-                  <u>
-                    <a href="{{baseURL}}/{{list.RefID}}">{{baseURL}}/<strong>{{list.RefID}}</strong>
-                    </a>
-                  </u>
-                </span>
+              <div class="col-md-4">
+                <span class="mb-2 text-xs">Referrals ({{list.enrolledUsers.length}})</span>
+                <p *ngFor="let users of list.enrolledUsers;let i=index"
+                  class="text-dark text-xs font-weight-bold mb-0 ">
+                  {{1+i}}. {{users}}</p>
 
               </div>
-            </div>
-            <div class="col-md-4">
-              <span class="mb-2 text-xs">Referrals ({{list.enrolledUsers.length}})</span>
-              <p *ngFor="let users of list.enrolledUsers;let i=index" class="text-dark text-xs font-weight-bold mb-0 ">
-                {{1+i}}. {{users}}</p>
+            </li>
 
-            </div>
-          </li>
-
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-ripple-multiple"
-  [fullScreen]="true">
-  <p style="color: white"> Fetching Agents... </p>
-</ngx-spinner>
+  <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="ball-scale-ripple-multiple"
+    [fullScreen]="true">
+    <p style="color: white"> Fetching Agents... </p>
+  </ngx-spinner>
+</body>
