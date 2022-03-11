@@ -1,4 +1,6 @@
+import { AppService } from 'src/app/service/app.service';
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  email: any
+  password: any
 
-  ngOnInit(): void {
+  constructor(private service: AppService,) { }
+
+  ngOnInit() {
+  }
+
+  login() {
+    this.service.login(this.email, this.password);
   }
 
 }

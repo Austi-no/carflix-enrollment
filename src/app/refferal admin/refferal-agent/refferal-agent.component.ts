@@ -58,4 +58,8 @@ export class RefferalAgentComponent implements OnInit {
 
   }
 
+  signOut() {
+    this.service.sigoutOut();
+  }
+
 }

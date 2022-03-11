@@ -8,6 +8,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignUpComponent } from './security/sign-up/sign-up.component';
 import { RefferalAgentComponent } from './refferal admin/refferal-agent/refferal-agent.component';
+import { AuthGuard } from './refferal admin/helpers/auth.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'app' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   { path: 'verifyCode', component: VerifyCodeComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'thank-you', component: ThankYouPageComponent },
-  { path: 'agent', component: RefferalAgentComponent },
+  { path: 'agent', component: RefferalAgentComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RefferalAgentComponent },
   { path: '**', component: NotFoundComponent }

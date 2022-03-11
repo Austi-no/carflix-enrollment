@@ -1,3 +1,4 @@
+import { LoginComponent } from './refferal admin/login/login.component';
 
 import { environment } from './../environments/environment.prod';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
@@ -38,7 +39,8 @@ import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
     ThankYouPageComponent,
     RefferalAgentComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
 
   ],
   imports: [
