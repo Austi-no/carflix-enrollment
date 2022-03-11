@@ -125,6 +125,7 @@ export class AppService {
   sigoutOut() {
     this.afa.signOut();
     sessionStorage.removeItem('user');
+    this.router.navigate(['login'])
   }
 
 

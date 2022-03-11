@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   constructor(private service: AppService,) { }
 
   ngOnInit() {
+
+    sessionStorage.removeItem('user');
   }
 
   login() {
