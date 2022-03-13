@@ -26,14 +26,18 @@
                 <input type="text" class="form-control" formControlName="phone" readonly>
               </div>
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="address" aria-label="Address"
+
+
+                <input type="text" class="form-control" placeholder="Enter Address..." aria-label="Address"
                   formControlName="address">
               </div>
 
 
               <div class="mb-3">
-                <input type="text" class="form-control" placeholder="Location" aria-label="Location"
-                  formControlName="location">
+                <select id="my-select" class="form-control" formControlName="location">
+                  <option selected>Select State</option>
+                  <option *ngFor="let list of states;" value="{{list}}">{{list}}</option>
+                </select>
               </div>
 
               <div class="text-center">

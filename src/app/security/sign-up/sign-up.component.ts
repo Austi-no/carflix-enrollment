@@ -19,6 +19,7 @@ export class SignUpComponent implements OnInit {
   signUpForm: any = FormGroup;
   submitted!: boolean
   data: any;
+  states: any = [];
 
   constructor(
     private formBuilder: FormBuilder, private spinner: NgxSpinnerService,
@@ -34,13 +35,25 @@ export class SignUpComponent implements OnInit {
       address: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       phone: [this.phone, [Validators.required]],
-      location: ['', [Validators.required]],
+      location: ['Select State', [Validators.required]],
       dealerId: ['', [Validators.required]],
 
     })
+
+
+    this.states = [
+      "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River", "Delta", "Ebonyi",
+      "Edo","Ekiti","Enugu","Gombe","Imo","Jigawa","Kaduna","Kano","Katsina","Kebbi","Kogi","Kwara","Lagos","Nasarawa","Niger",
+      "Ogun", "Ondo","Osun","Oyo","Plateau","Rivers","Sokoto","Taraba","Yobe","Zamfara","FCT - Abuja"
+    ]
+    console.log(this.states);
+
   }
 
   signUp() {
+
+
+
     this.spinner.show()
     this.submitted = true
     this.signUpForm.get('dealerId').setValue(this.dealerID)
